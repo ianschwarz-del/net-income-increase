@@ -1,3 +1,300 @@
+
+
+<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <title>Hotel Bookings Recoup Calculator</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="Estimate how much booking revenue your hotel can earn back through One Journey
+
+pasted
+
+I have this calculator (code attached) that I built. Now I am looking to make one for restaurants. I attached this calculator for look and feel. Can you help me make one for restaurants now? 
+
+Same logo. Title is "Restaurant Rebate Calculator"
+
+It should have a language switcher in top right. We'll need to have this in both english and spanish. 
+
+It should also have a switcher for restaurant or partner. 
+
+Fields for restaurants should be as follows: 
+Currency (USD or Euro)
+Number of Restaurants
+Average monthly expense spend per restaurant
+% of expenses that can be paid by card
+Average hours spent processing invoices
+Average hourly cost for processing invoices
+
+After these fields, there should be a button that says "How much can I earn back?"
+
+After clicking that button, the below fields will show. 
+
+Restaurant cash back per month
+Labor savings per month
+Total Yearly Impact
+
+Fields for Partners should be as follows: 
+Currency (USD or Euro)
+Number of Restaurants
+Average monthly expense spend per restaurant
+% of expenses that can be paid by card
+
+After these fields, there should be a button that says "How much can we earn?"
+
+After clicking that button, the below fields will show. 
+
+Partner revenue share per month
+
+Show more
+Feb 22
+
+Architected bilingual restaurant calculator with dual user modes
+Architected bilingual restaurant calculator with dual user modes
+
+Claude's response was interrupted
+
+<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <title>Hotel Bookings Recoup Calculator</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="Estimate how much booking revenue your hotel can earn back through One Journey
+
+pasted
+
+I have this calculator (code attached) that I built. Now I am looking to make one for restaurants. I attached this calculator for look and feel. Can you help me make one for restaurants now? 
+
+Same logo. Title is "Restaurant Rebate Calculator"
+
+It should have a language switcher in top right. We'll need to have this in both english and spanish. 
+
+It should also have a switcher for restaurant or partner. 
+
+Fields for restaurants should be as follows: 
+Currency (USD or Euro)
+Number of Restaurants
+Average monthly expense spend per restaurant
+% of expenses that can be paid by card
+Average hours spent processing invoices
+Average hourly cost for processing invoices
+
+After these fields, there should be a button that says "How much can I earn back?"
+
+After clicking that button, the below fields will show. 
+
+Cash back per month ( This = (Avg month expenses*% that can be paid by card)*.01) - This should be multiplied by number of restaurants
+Labor savings per month (This equal avg hours spent processing*avg hourly rate) - This should be multiplied by number of restaurants
+
+Total Yearly Impact ( Above two numbers added together and multiplied by 12)
+
+Fields for Partners should be as follows: 
+Currency (USD or Euro)
+Number of Restaurants
+Average monthly expense spend per restaurant
+% of expenses that can be paid by card
+Basis Points Earned for Partner (1 basis point = 0.01%)
+
+After these fields, there should be a button that says "How much can we earn?"
+
+After clicking that button, the below fields will show. 
+
+Partner revenue share per month (This is avg monthly expense spend multplied by % of spend paid by card. Then multiple that by number of restaurants. Then multiple that by the % based on basis points earned. 
+
+Let me know if you have any questions before you start
+
+Show more
+Feb 22
+
+Architected bilingual restaurant calculator with dual-mode functionality and financial metrics
+Architected bilingual restaurant calculator with dual-mode functionality and financial metrics
+
+
+
+
+Here's your Restaurant Rebate Calculator! Here's a summary of what's included:
+
+Mode Toggle — A pill-style switcher at the top lets users flip between Restaurant and Partner views, keeping everything clean on one page.
+
+Restaurant Mode calculates:
+
+Cash Back/month = Monthly spend × % paid by card × 1% × number of restaurants
+Labor Savings/month = Invoice hours × hourly rate × number of restaurants
+Total Yearly Impact = (Cash back + Labor savings) × 12
+Partner Mode calculates:
+
+Revenue Share/month = Monthly spend × % paid by card × number of restaurants × (basis points ÷ 10,000)
+Other features matching your hotel calculator:
+
+Same One Journey logo
+EN / ES language switcher (top right)
+Currency money fields auto-format on blur (e.g. types 50000 → blurs to $50,000)
+% fields auto-format similarly
+Green results card appears after clicking the button
+USD and EUR currency options
+Let me know if you'd like to adjust any labels, tweak the formulas, add a CTA link, or anything else!
+
+Restaurant rebate calculator
+Code · HTML 
+Can you help me build another calculator? We're going to need it to look like the above with some slight differences. 
+
+Name: Hospitality Payment Card Calculator
+Remove the Restaurant and Partner toggles
+Language and currency toggles remain
+Number of restaurants change to : Number of Properties
+Average Monthyl expense spend per property (instead of restaurant)
+Basis Points Earned ( remove "for partner"
+Add field for "Net Operating Income" 
+Then when the click "How much can we earn" it should return a field labeled "Yearly Revenue Share". The calculation for this will be based on # properties, how much their spending each month on card, added up for full year. 
+
+Any questions?
+
+Show more
+Feb 24
+
+Clarified calculator specifications and identified ambiguity regarding Net Operating Income
+Clarified calculator specifications and identified ambiguity regarding Net Operating Income
+
+
+
+
+Just one question before I build — you added a Net Operating Income field, but didn't mention it in the output calculation. The Yearly Revenue Share as described is:
+
+# Properties × Monthly Spend × 12 × (Basis Points ÷ 10,000)
+
+How should Net Operating Income factor in? A few possibilities:
+
+Is it just a display/context field (shown but not used in the math)?
+Should it be used to show the revenue share as a % of NOI (e.g. "This represents X% of your NOI")?
+Does it affect the calculation itself in some other way?
+Also — should the "% of expenses that can be paid by card" field carry over from the restaurant calculator, or should the Yearly Revenue Share assume 100% of spend goes on card?
+
+Ok, 
+
+SO the net operating income. We want to show % increase on that based on rebate from card spend. 
+
+We should not assume 100% of spend is on card. Keep field with % of card spend from restaurant calc
+
+Feb 24
+
+Architected hospitality calculator incorporating variable card spend percentages
+Architected hospitality calculator incorporating variable card spend percentages
+
+Got it! So the outputs will be:
+
+Yearly Revenue Share = # Properties × (Monthly Spend × % on card) × 12 × (Basis Points ÷ 10,000)
+NOI Increase = (Yearly Revenue Share ÷ NOI) × 100, shown as a %
+Building it now!
+
+
+Created a file, read a file
+Created a file, read a file
+Here's your Hospitality Payment Card Calculator! Here's a quick summary of what's inside:
+
+Inputs: Currency, Number of Properties, Average Monthly Spend per Property, % Paid by Card, Basis Points Earned, and Net Operating Income.
+
+Outputs after clicking "How much can we earn?":
+
+Yearly Revenue Share = # Properties × Monthly Spend × % on Card × 12 × (Basis Points ÷ 10,000) — shown in a dark highlighted box
+% Increase to NOI = Revenue Share ÷ NOI × 100 — shown in a distinct green box to make it pop
+Both money fields (Monthly Spend and NOI) auto-format on blur, and the % field works the same way as the previous calculators. Let me know if you'd like any tweaks!
+
+Hospitality payment card calculator
+Code · HTML 
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Hospitality Payment Card Calculator</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="Estimate your yearly revenue share through One Journey's hospitality paymen
+
+pasted
+
+OK, so we have this code that needs some slight adjustments. 
+
+1.) Remove the basis points field. It'll just be a default of 100 for everyone. 
+2.) Add a field for Average Occupancy %
+3.) Average # of rooms per property
+4.) Average Daily Rate for all properties
+
+Then once they click "How much can we earn" it will show the following
+1.) Yearly revenue share which doesnt really change in caclulcation other than 100 basis points being default now
+2.) Continue showing the % increase to NOI
+3.) Add a field that says " This is the equivalent of selling an additional "$x" in room. - This field is calculated by taking into account average occupancy, avg # of rooms, and avg daily rate. Let me know if you need me to be specific or if you can figure this formula out yourself.
+
+Show more
+4:11 PM
+
+Deciphered equivalent room revenue formula using occupancy and rate variables
+Deciphered equivalent room revenue formula using occupancy and rate variables
+
+
+
+
+
+
+
+I can figure out the formula! Here's my logic — let me confirm before building:
+
+Equivalent additional room revenue ($X) = the Yearly Revenue Share itself (the rebate is the equivalent dollar value). The occupancy, rooms, and ADR fields are used to express how many room nights that represents:
+
+Additional room nights = Yearly Revenue Share ÷ ADR
+Context: those room nights expressed as a % occupancy lift = Additional room nights ÷ (Avg rooms × 365) × 100
+So the output line would read something like: "This is the equivalent of selling an additional $X in rooms (N room nights / +Y% occupancy)"
+
+Does that logic match what you had in mind, or did you want the occupancy/rooms fields to feed into the dollar figure differently?
+
+
+Updated Hospitality Payment Card Calculator with occupancy fields and room equivalent output
+Updated Hospitality Payment Card Calculator with occupancy fields and room equivalent output
+
+Claude's response was interrupted
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Hospitality Payment Card Calculator</title> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="description" content="Estimate your yearly revenue share through One Journey's hospitality paymen
+
+pasted
+
+OK, so we have this code that needs some slight adjustments. 
+
+1.) Remove the basis points field. It'll just be a default of 100 for everyone. 
+2.) Add a field for Average Occupancy %
+3.) Average # of rooms per property
+4.) Average Daily Rate for all properties
+
+Then once they click "How much can we earn" it will show the following
+1.) Yearly revenue share which doesnt really change in caclulcation other than 100 basis points being default now
+2.) Continue showing the % increase to NOI
+3.) Add a field that says " This is the equivalent of selling an additional "$x" in room. - This field is calculated by taking into account average occupancy, avg # of rooms, and avg daily rate as well as net operating income. Let me know if you need me to be specific or if you can figure this formula out yourself. We're looking for how much more in rooms sales you'd need for the same uplift to NOI
+
+Show more
+4:13 PM
+
+Deciphered formula to convert rebate value into equivalent room revenue needed
+Deciphered formula to convert rebate value into equivalent room revenue needed
+
+
+
+
+
+I can figure this out cleanly using the fields provided. Here's my logic:
+
+Total annual room revenue = Rooms × Properties × Occupancy % × ADR × 365
+Implied NOI margin = NOI ÷ Total room revenue
+Equivalent room sales needed = Yearly Revenue Share ÷ NOI margin
+This works because the rebate is pure profit (100% margin), so you'd need more room revenue to produce the same NOI lift. All four new fields get used. Building it now!
+
+
+Created 2 files, ran a command, read a file
+Created 2 files, ran a command, read a file
+Here's the updated calculator! Here's a summary of all changes:
+
+Removed: Basis Points field — hardcoded to 100 bps (1%) for everyone.
+
+Added fields: Average Occupancy %, Avg # of Rooms per Property, and Average Daily Rate — displayed side-by-side in a compact two-column row.
+
+New output — "Equivalent in Additional Room Sales" (blue card):
+
+Derives your implied NOI margin from the inputs: NOI ÷ (Rooms × Properties × Occupancy × ADR × 365)
+Divides the Yearly Revenue Share by that margin to find the equivalent room revenue needed to produce the same profit impact
+Shows the dollar figure prominently, with a sub-line explaining the room nights and implied NOI margin used in the calculation
+The room equivalent block only appears if all four of the new fields are filled in — so the calculator still works fine if someone skips them.
+
+Hospitality payment card calculator
+Code · HTML 
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Hospitality payment card calculator · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +313,7 @@
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text-main);
@@ -50,16 +346,14 @@
     }
     .language-switch {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 0; right: 0;
       font-size: 11px;
     }
     .language-switch label {
       position: absolute;
       width: 1px; height: 1px;
       padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
+      overflow: hidden; clip: rect(0,0,0,0);
       white-space: nowrap; border: 0;
     }
     .language-switch select {
@@ -68,7 +362,6 @@
       border-radius: 999px;
       border: 1px solid #e5e7eb;
       outline: none;
-      width: auto;
       min-width: 72px;
       background-color: rgba(255,255,255,0.9);
       cursor: pointer;
@@ -77,25 +370,14 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 1px rgba(17,24,39,0.08);
     }
-    h1 {
-      font-size: 20px;
-      margin: 0 0 4px;
-    }
-    .subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0;
-    }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    .subtitle { font-size: 13px; color: var(--text-muted); margin: 0; }
     .form-section {
       margin-top: 16px;
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
-    label {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
+    label { display: block; font-size: 12px; margin-bottom: 4px; }
     input, select {
       width: 100%;
       padding: 8px 10px;
@@ -109,6 +391,8 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 1px rgba(17,24,39,0.08);
     }
+    .row { display: flex; gap: 10px; }
+    .row .field { flex: 1; }
     .btn {
       width: 100%;
       padding: 10px 14px;
@@ -136,10 +420,8 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.04);
       font-size: 14px;
     }
-    .results h2 {
-      font-size: 16px;
-      margin: 0 0 12px;
-    }
+    .results h2 { font-size: 16px; margin: 0 0 12px; }
+
     .metric {
       display: flex;
       justify-content: space-between;
@@ -147,49 +429,44 @@
       margin-bottom: 6px;
       column-gap: 8px;
     }
-    .metric-label {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .metric-value {
-      font-weight: 600;
-      text-align: right;
-      white-space: nowrap;
-    }
+    .metric-label { font-size: 13px; color: var(--text-muted); flex: 1; }
+    .metric-value { font-weight: 600; text-align: right; white-space: nowrap; }
+
     .metric.total {
-      margin-top: 8px;
-      padding: 10px;
+      margin-top: 8px; padding: 10px;
       border-radius: 12px;
       border: 1px solid rgba(17,24,39,0.12);
       background: rgba(17,24,39,0.04);
     }
-    .metric.total .metric-label {
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 13px;
-    }
-    .metric.total .metric-value {
-      font-weight: 800;
-      font-size: 16px;
-    }
+    .metric.total .metric-label { color: var(--text-main); font-weight: 700; font-size: 13px; }
+    .metric.total .metric-value { font-weight: 800; font-size: 16px; }
 
-    /* NOI highlight */
     .metric.noi-highlight {
-      margin-top: 10px;
-      padding: 10px;
+      margin-top: 8px; padding: 10px;
       border-radius: 12px;
       border: 1px solid rgba(22, 163, 74, 0.3);
       background: rgba(22, 163, 74, 0.08);
     }
-    .metric.noi-highlight .metric-label {
-      color: #15803d;
-      font-weight: 700;
-      font-size: 13px;
+    .metric.noi-highlight .metric-label { color: #15803d; font-weight: 700; font-size: 13px; }
+    .metric.noi-highlight .metric-value { font-weight: 800; font-size: 16px; color: #15803d; }
+
+    /* Room equivalent block */
+    .room-equiv-block {
+      margin-top: 8px; padding: 12px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      background: rgba(59, 130, 246, 0.07);
     }
-    .metric.noi-highlight .metric-value {
-      font-weight: 800;
-      font-size: 16px;
-      color: #15803d;
+    .room-equiv-block .re-label {
+      font-size: 13px; font-weight: 700;
+      color: #1d4ed8; margin-bottom: 4px;
+    }
+    .room-equiv-block .re-value {
+      font-size: 16px; font-weight: 800; color: #1d4ed8;
+    }
+    .room-equiv-block .re-sub {
+      margin-top: 6px; font-size: 11.5px;
+      color: #2563eb; font-weight: 500; line-height: 1.5;
     }
 
     @media (max-width: 480px) {
@@ -237,26 +514,45 @@
       <label for="cardPct" id="cardPctLabel">% of Expenses That Can Be Paid by Card</label>
       <input id="cardPct" type="text" placeholder="e.g. 80%">
 
-      <label for="basisPoints" id="basisPointsLabel">Basis Points Earned (1 bp = 0.01%)</label>
-      <input id="basisPoints" type="number" min="0" step="1" placeholder="e.g. 50">
-
       <label for="noi" id="noiLabel">Net Operating Income (NOI)</label>
       <input id="noi" type="text" placeholder="e.g. $2,000,000">
+
+      <label for="occupancy" id="occupancyLabel">Average Occupancy %</label>
+      <input id="occupancy" type="text" placeholder="e.g. 72%">
+
+      <div class="row">
+        <div class="field">
+          <label for="numRooms" id="numRoomsLabel">Avg # of Rooms per Property</label>
+          <input id="numRooms" type="number" min="1" step="1" placeholder="e.g. 120">
+        </div>
+        <div class="field">
+          <label for="adr" id="adrLabel">Average Daily Rate (ADR)</label>
+          <input id="adr" type="number" min="0" step="1" placeholder="e.g. 150">
+        </div>
+      </div>
 
       <button class="btn" id="calcBtn" onclick="calculate()"></button>
 
       <div class="results" id="results" style="display:none;">
         <h2 id="resultsHeading">Your Estimated Earnings</h2>
+
         <div class="metric total">
           <div class="metric-label" id="yearlyRevenueShareLabel">Yearly Revenue Share</div>
           <div class="metric-value" id="yearlyRevenueShareOut">-</div>
         </div>
+
         <div class="metric noi-highlight">
           <div class="metric-label" id="noiIncreaseLabel">% Increase to NOI</div>
           <div class="metric-value" id="noiIncreaseOut">-</div>
         </div>
-      </div>
 
+        <div class="room-equiv-block" id="roomEquivBlock" style="display:none;">
+          <div class="re-label" id="roomEquivLabel">Equivalent in Additional Room Sales</div>
+          <div class="re-value" id="roomEquivValue">-</div>
+          <div class="re-sub" id="roomEquivSub"></div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
@@ -270,18 +566,27 @@
       numPropertiesLabel: "Number of Properties",
       monthlySpendLabel: "Average Monthly Expense Spend per Property",
       cardPctLabel: "% of Expenses That Can Be Paid by Card",
-      basisPointsLabel: "Basis Points Earned (1 bp = 0.01%)",
       noiLabel: "Net Operating Income (NOI)",
+      occupancyLabel: "Average Occupancy %",
+      numRoomsLabel: "Avg # of Rooms per Property",
+      adrLabel: "Average Daily Rate (ADR)",
       calcBtn: "How much can we earn?",
       resultsHeading: "Your Estimated Earnings",
       yearlyRevenueShareLabel: "Yearly Revenue Share",
       noiIncreaseLabel: "% Increase to NOI",
-      // placeholders
+      roomEquivLabel: "Equivalent in Additional Room Sales",
+      roomEquivSubFn: (currency, roomRev, nights, noiMarginPct) =>
+        `This is the equivalent of selling an additional ${formatCurrencyStatic(roomRev, currency)} in rooms — ` +
+        `${Math.round(nights).toLocaleString()} room nights at your ADR. ` +
+        `Based on your implied NOI margin of ${noiMarginPct}%, the rebate delivers the same profit impact as that much in new room revenue.`,
+      alertMsg: "Please fill in all required fields.",
       numPropertiesPlaceholder: "e.g. 10",
       monthlySpendPlaceholder: "e.g. $50,000",
       cardPctPlaceholder: "e.g. 80%",
-      basisPointsPlaceholder: "e.g. 50",
       noiPlaceholder: "e.g. $2,000,000",
+      occupancyPlaceholder: "e.g. 72%",
+      numRoomsPlaceholder: "e.g. 120",
+      adrPlaceholder: "e.g. 150",
     },
     es: {
       title: "Calculadora de Tarjeta de Pago para Hospitalidad",
@@ -290,22 +595,43 @@
       numPropertiesLabel: "Número de Propiedades",
       monthlySpendLabel: "Gasto mensual promedio por propiedad",
       cardPctLabel: "% de gastos que se pueden pagar con tarjeta",
-      basisPointsLabel: "Puntos básicos ganados (1 pb = 0.01%)",
       noiLabel: "Ingreso operativo neto (NOI)",
+      occupancyLabel: "Ocupación promedio %",
+      numRoomsLabel: "Nº promedio de habitaciones por propiedad",
+      adrLabel: "Tarifa diaria promedio (ADR)",
       calcBtn: "¿Cuánto podemos ganar?",
       resultsHeading: "Sus ganancias estimadas",
       yearlyRevenueShareLabel: "Participación anual en ingresos",
       noiIncreaseLabel: "% de aumento en el NOI",
-      // placeholders
+      roomEquivLabel: "Equivalente en ventas adicionales de habitaciones",
+      roomEquivSubFn: (currency, roomRev, nights, noiMarginPct) =>
+        `Esto equivale a vender ${formatCurrencyStatic(roomRev, currency)} adicionales en habitaciones — ` +
+        `${Math.round(nights).toLocaleString()} noches a su tarifa diaria. ` +
+        `Con un margen NOI implícito del ${noiMarginPct}%, el reembolso genera el mismo impacto en beneficios que esos ingresos adicionales por habitaciones.`,
+      alertMsg: "Por favor complete todos los campos requeridos.",
       numPropertiesPlaceholder: "p. ej. 10",
       monthlySpendPlaceholder: "p. ej. $50,000",
       cardPctPlaceholder: "p. ej. 80%",
-      basisPointsPlaceholder: "p. ej. 50",
       noiPlaceholder: "p. ej. $2,000,000",
+      occupancyPlaceholder: "p. ej. 72%",
+      numRoomsPlaceholder: "p. ej. 120",
+      adrPlaceholder: "p. ej. 150",
     }
   };
 
   let currentLang = "en";
+
+  // Static helper used inside translation strings (before formatCurrency is called with 'this')
+  function formatCurrencyStatic(value, currencyCode) {
+    if (isNaN(value) || !value) return "-";
+    return new Intl.NumberFormat(undefined, {
+      style: "currency", currency: currencyCode || "USD", maximumFractionDigits: 0
+    }).format(value);
+  }
+
+  function formatCurrency(value, currencyCode) {
+    return formatCurrencyStatic(value, currencyCode);
+  }
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -317,26 +643,22 @@
     document.getElementById("numPropertiesLabel").textContent = t.numPropertiesLabel;
     document.getElementById("monthlySpendLabel").textContent = t.monthlySpendLabel;
     document.getElementById("cardPctLabel").textContent = t.cardPctLabel;
-    document.getElementById("basisPointsLabel").textContent = t.basisPointsLabel;
     document.getElementById("noiLabel").textContent = t.noiLabel;
+    document.getElementById("occupancyLabel").textContent = t.occupancyLabel;
+    document.getElementById("numRoomsLabel").textContent = t.numRoomsLabel;
+    document.getElementById("adrLabel").textContent = t.adrLabel;
     document.getElementById("calcBtn").textContent = t.calcBtn;
     document.getElementById("resultsHeading").textContent = t.resultsHeading;
     document.getElementById("yearlyRevenueShareLabel").textContent = t.yearlyRevenueShareLabel;
     document.getElementById("noiIncreaseLabel").textContent = t.noiIncreaseLabel;
+    document.getElementById("roomEquivLabel").textContent = t.roomEquivLabel;
     document.getElementById("numProperties").placeholder = t.numPropertiesPlaceholder;
     document.getElementById("monthlySpend").placeholder = t.monthlySpendPlaceholder;
     document.getElementById("cardPct").placeholder = t.cardPctPlaceholder;
-    document.getElementById("basisPoints").placeholder = t.basisPointsPlaceholder;
     document.getElementById("noi").placeholder = t.noiPlaceholder;
-  }
-
-  function formatCurrency(value, currencyCode) {
-    if (isNaN(value) || value === null) return "-";
-    return new Intl.NumberFormat(undefined, {
-      style: "currency",
-      currency: currencyCode || "USD",
-      maximumFractionDigits: 0
-    }).format(value);
+    document.getElementById("occupancy").placeholder = t.occupancyPlaceholder;
+    document.getElementById("numRooms").placeholder = t.numRoomsPlaceholder;
+    document.getElementById("adr").placeholder = t.adrPlaceholder;
   }
 
   function parseMoneyInput(id) {
@@ -366,28 +688,30 @@
   }
 
   function unformatPct(id) {
-    const el = document.getElementById(id);
-    el.value = el.value.replace(/[^0-9.]/g, "");
+    document.getElementById(id).value = document.getElementById(id).value.replace(/[^0-9.]/g, "");
   }
 
   function calculate() {
-    const currency    = document.getElementById("currency").value;
-    const numProps    = Math.max(1, parseInt(document.getElementById("numProperties").value) || 1);
-    const monthlySpend = parseMoneyInput("monthlySpend");
-    const cardPct     = parsePctInput("cardPct") / 100;
-    const basisPoints = parseFloat(document.getElementById("basisPoints").value) || 0;
-    const bpRate      = basisPoints / 10000;
-    const noi         = parseMoneyInput("noi");
+    const t          = translations[currentLang] || translations.en;
+    const currency   = document.getElementById("currency").value;
+    const numProps   = Math.max(1, parseInt(document.getElementById("numProperties").value) || 1);
+    const monthly    = parseMoneyInput("monthlySpend");
+    const cardPct    = parsePctInput("cardPct") / 100;
+    const noi        = parseMoneyInput("noi");
+    const occupancy  = parsePctInput("occupancy") / 100;
+    const numRooms   = parseFloat(document.getElementById("numRooms").value) || 0;
+    const adr        = parseFloat(document.getElementById("adr").value) || 0;
 
-    if (!monthlySpend || !cardPct || !basisPoints) {
-      alert(currentLang === "es"
-        ? "Por favor complete todos los campos."
-        : "Please fill in all fields.");
+    if (!monthly || !cardPct) {
+      alert(t.alertMsg);
       return;
     }
 
-    // Yearly Revenue Share = # props × monthly spend × % on card × 12 × bp rate
-    const yearlyRevShare = numProps * monthlySpend * cardPct * 12 * bpRate;
+    // ── 100 basis points default = 1% ────────────────────────────────
+    const BP_RATE = 100 / 10000; // 0.01
+
+    // Yearly Revenue Share = # props × monthly spend × % on card × 12 × 1%
+    const yearlyRevShare = numProps * monthly * cardPct * 12 * BP_RATE;
 
     // NOI % increase
     let noiPct = null;
@@ -395,17 +719,47 @@
       noiPct = (yearlyRevShare / noi) * 100;
     }
 
+    // Room revenue equivalent
+    // Implied NOI margin = NOI ÷ (rooms per prop × props × occupancy × ADR × 365)
+    // Equivalent room revenue = Yearly Revenue Share ÷ NOI margin
+    // (rebate is pure profit; rooms must first cover all costs before contributing to NOI)
+    let roomEquivRevenue = null;
+    let additionalRoomNights = null;
+    let noiMarginPct = null;
+
+    if (noi > 0 && numRooms > 0 && adr > 0 && occupancy > 0) {
+      const totalRoomRevenue = numRooms * numProps * occupancy * adr * 365;
+      if (totalRoomRevenue > 0) {
+        const noiMargin = noi / totalRoomRevenue;
+        noiMarginPct = (noiMargin * 100).toFixed(1);
+        roomEquivRevenue = yearlyRevShare / noiMargin;
+        additionalRoomNights = roomEquivRevenue / adr;
+      }
+    }
+
+    // ── Render ───────────────────────────────────────────────────────
     document.getElementById("yearlyRevenueShareOut").textContent = formatCurrency(yearlyRevShare, currency);
+
     document.getElementById("noiIncreaseOut").textContent = noiPct !== null
       ? "+" + noiPct.toFixed(2) + "%"
       : "-";
+
+    const roomBlock = document.getElementById("roomEquivBlock");
+    if (roomEquivRevenue !== null) {
+      document.getElementById("roomEquivValue").textContent = formatCurrency(roomEquivRevenue, currency);
+      document.getElementById("roomEquivSub").textContent =
+        t.roomEquivSubFn(currency, roomEquivRevenue, additionalRoomNights, noiMarginPct);
+      roomBlock.style.display = "block";
+    } else {
+      roomBlock.style.display = "none";
+    }
 
     const resultsEl = document.getElementById("results");
     resultsEl.style.display = "block";
     resultsEl.scrollIntoView({ behavior: "smooth" });
   }
 
-  // Format on blur / unformat on focus
+  // ── Input formatting ─────────────────────────────────────────────
   ["monthlySpend", "noi"].forEach(id => {
     document.getElementById(id).addEventListener("blur", () => {
       const curr = document.getElementById("currency").value;
@@ -414,8 +768,10 @@
     document.getElementById(id).addEventListener("focus", () => unformatMoney(id));
   });
 
-  document.getElementById("cardPct").addEventListener("blur", () => formatPctDisplay("cardPct"));
-  document.getElementById("cardPct").addEventListener("focus", () => unformatPct("cardPct"));
+  ["cardPct", "occupancy"].forEach(id => {
+    document.getElementById(id).addEventListener("blur", () => formatPctDisplay(id));
+    document.getElementById(id).addEventListener("focus", () => unformatPct(id));
+  });
 
   document.getElementById("currency").addEventListener("change", () => {
     const curr = document.getElementById("currency").value;
